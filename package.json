@@ -19,14 +19,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "cli",
+    "command",
     "redshift",
     "aws",
     "node redshift",
     "aws redshfit"
   ],
   "bin": {
-    "node-redshift": "./bin/node-redshift"
+    "aws-redshift": "./bin/aws-redshift"
   },
-  "author": "Dheeraj Manjunath @dmanjunath",
+  "author": "Sayed Tauseef Naqvi",
+  "contributors": [
+    {
+      "name": "Sayed Tauseef Naqvi",
+      "email": "tauseef.naqvi786@gmail.com"
+    }
+  ],
   "license": "MIT"
 }

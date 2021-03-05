@@ -1,21 +1,29 @@
+[![NPM](https://nodei.co/npm/aws-redshift.png)](https://nodei.co/npm/aws-redshift/)
+
+[![npm version](https://badge.fury.io/js/aws-redshift.png)](https://badge.fury.io/js/aws-redshift)
+[![Known npm Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/aws-redshift.svg?label=npm%20vulnerabilities&style=flat-square)](https://snyk.io/test/npm/aws-redshift)
+[![Known Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/sthnaqvi/aws-redshift.svg?label=repo%20vulnerabilities&style=flat-square&targetFile=package.json)](https://snyk.io/test/github/sthnaqvi/aws-redshift?targetFile=package.json)
+
 ## Navigation
 
-#### [Overview](https://github.com/dmanjunath/node-redshift#overview-1)
+#### [Overview](#overview-1)
 
-#### [Installation](https://github.com/dmanjunath/node-redshift#installation-1)
+#### [Installation](#installation-1)
 
-#### [Setup](https://github.com/dmanjunath/node-redshift#setup-1)
+#### [Setup](#setup-1)
 
-#### [Usage](https://github.com/dmanjunath/node-redshift#usage-1)
+#### [Usage](#usage-1)
 
-- #### [Query API](https://github.com/dmanjunath/node-redshift#query-api-2)
-- #### [CLI](https://github.com/dmanjunath/node-redshift#cli-2)
-- #### [Models](https://github.com/dmanjunath/node-redshift#models-2)
-- #### [ORM](https://github.com/dmanjunath/node-redshift#orm-api)
+- #### [Query API](#query-api-2)
+- #### [CLI](#cli-2)
+- #### [Models](#models-2)
+- #### [ORM](#orm-api)
 
-#### [Upcoming Features](https://github.com/dmanjunath/node-redshift#upcoming-features-1)
+#### [Change Logs](#change-logs)
 
-#### [License](https://github.com/dmanjunath/node-redshift#license-1)
+#### [Upcoming Features](#upcoming-features-1)
+
+#### [License](#license-1)
 
 ## Overview
 This package is a simple wrapper for common functionality you want when using Redshift. It can do
@@ -29,16 +37,16 @@ Warning!!!!!! This is new and still under development. The API is bound to chang
 ## Installation
 Install the package by running
 ```javascript
-npm install node-redshift
+npm install aws-redshift
 ```
-Link to npm repository https://www.npmjs.com/package/node-redshift
+Link to npm repository https://www.npmjs.com/package/aws-redshift
 
 ## Setup
 
 The code to connect to redshift should be something like this:
 ```javascript
 //redshift.js
-var Redshift = require('node-redshift');
+var Redshift = require('aws-redshift');
 
 var client = {
   user: user,
@@ -56,22 +64,22 @@ module.exports = redshiftClient;
 
 There are two ways to setup a connection to redshift. 
 
-- [Connection Pooling](https://github.com/dmanjunath/node-redshift#connection-pooling) -  you can open a connection pool and open connections to Redshift which will be managed by pg-pool (https://github.com/brianc/node-pg-pool)
-- [Raw Connection](https://github.com/dmanjunath/node-redshift#raw-connection) - a one time connection you must manually initialize and close to run queries
+- [Connection Pooling](#connection-pooling) -  you can open a connection pool and open connections to Redshift which will be managed by pg-pool (https://github.com/brianc/node-pg-pool)
+- [Raw Connection](#raw-connection) - a one time connection you must manually initialize and close to run queries
 
 
-###### ***By default node-redshift uses connection pooling
+###### ***By default aws-redshift uses connection pooling
 
 #### 
 ##### Raw Connection
-Pass in the rawConnection parameter in the redshift instantiation options to specify a raw connection. Raw connections need extra code to specify when to connect and disconnect from Redshift. [Here's an example of the raw connection query](https://github.com/dmanjunath/node-redshift/blob/master/examples/raw_connection.js)
+Pass in the rawConnection parameter in the redshift instantiation options to specify a raw connection. Raw connections need extra code to specify when to connect and disconnect from Redshift. [Here's an example of the raw connection query](https://github.com/sthnaqvi/aws-redshift/blob/master/examples/raw_connection.js)
 
 ```javascript
 var redshiftClient = new Redshift(client, {rawConnection: true});
 ```
 
 ##### Connection Pooling 
-Connection pooling works by default with no extra configuration. [Here's an example of connection pooling](https://github.com/dmanjunath/node-redshift/blob/master/examples/connection_pooling.js)
+Connection pooling works by default with no extra configuration. [Here's an example of connection pooling](https://github.com/sthnaqvi/aws-redshift/blob/master/examples/connection_pooling.js)
 
 ##### Setup Options
 There are two options that can be passed into the options object in the Redshift constructor.
@@ -84,10 +92,10 @@ There are two options that can be passed into the options object in the Redshift
 
 ## Usage
 
-#### [Query API](https://github.com/dmanjunath/node-redshift#query-api-2)
-#### [CLI](https://github.com/dmanjunath/node-redshift#cli-2)
-#### [Models](https://github.com/dmanjunath/node-redshift#models-2)
-#### [ORM](https://github.com/dmanjunath/node-redshift#orm-api)
+#### [Query API](#query-api-2)
+#### [CLI](#cli-2)
+#### [Models](#models-2)
+#### [ORM](#orm-api)
 #
 ### Query API
 Please see examples/ folder for full code examples using both raw connections and connection pools.
@@ -198,25 +206,25 @@ WARNING!!! IF YOU HAVE SEPARATE DEV AND PROD REDSHIFT INSTANCES, DO NOT COMMIT T
 ##### Create a new migration file in redshift_migrations/ folder
 #
 ```
-node_modules/.bin/node-redshift migration:create <filename>
+node_modules/.bin/aws-redshift migration:create <filename>
 ```
 
 ##### Run all remaining migrations on database
 #
 ```
-node_modules/.bin/node-redshift db:migrate <filename>
+node_modules/.bin/aws-redshift db:migrate <filename>
 ```
 
 ##### Undo last migration
 #
 ```
-node_modules/.bin/node-redshift db:migrate:undo <filename>
+node_modules/.bin/aws-redshift db:migrate:undo <filename>
 ```
 
 ##### Creating a model using the command line
 #
 ```
-node_modules/.bin/node-redshift model:create <filename>
+node_modules/.bin/aws-redshift model:create <filename>
 ```
 
 ### Models
@@ -249,7 +257,7 @@ There are two ways you could import and use redshift models. The first is using 
 var redshift = require("../redshift.js");
 var person = redshift.import("./redshift_models/person.js");
 
-person.create({name: 'Dheeraj', email: 'dheeraj@email.com'}, function(err, data){
+person.create({name: 'John', email: 'john@example.com'}, function(err, data){
     if(err) throw err;
     else{
       console.log(data);
@@ -273,7 +281,7 @@ module.exports = redshift;
 var redshiftConnection = require('./redshift.js');
 var person = redshift.models.person;
 
-person.create({name: 'Dheeraj', email: 'dheeraj@email.com'}, function(err, data){
+person.create({name: 'John', email: 'john@example.com'}, function(err, data){
     if(err) throw err;
     else{
       console.log(data);
@@ -290,7 +298,7 @@ There are 3 functions supported by the ORM
  * @param  {Function} cb   
  * @return {Object}        Object that's inserted into redshift
  */
-Person.create({emailAddress: 'dheeraj@email.com', name: 'Dheeraj'}, function(err, data){
+Person.create({emailAddress: 'john@example.com', name: 'John'}, function(err, data){
   if(err) throw err;
   else console.log(data);
 });
@@ -303,7 +311,7 @@ Person.create({emailAddress: 'dheeraj@email.com', name: 'Dheeraj'}, function(err
  * @return {Object}               Object that's updated in redshift
  *
  */
-Person.update({id: 72}, {emailAddress: 'dheeraj@email.com', name: 'Dheeraj'}, function(err, data){
+Person.update({id: 72}, {emailAddress: 'john@example.com', name: 'John'}, function(err, data){
   if(err) throw err;
   else console.log(data);
 });
@@ -314,11 +322,14 @@ Person.update({id: 72}, {emailAddress: 'dheeraj@email.com', name: 'Dheeraj'}, fu
  * @param  {Function} cb   
  * @return {Object}        Object that's deleted from redshift
  */
-Person.delete({emailAddress: 'dheeraj@email.com', name: 'Dheeraj'}, function(err, data){
+Person.delete({emailAddress: 'john@example.com', name: 'John'}, function(err, data){
   if(err) throw err;
   else console.log(data);
 });
 ```
+
+## Change logs
+- v1.0.1 Supported `node.js v15`
 
 ## Upcoming features
 - Ability to customize location of `.migrate` file or even from S3

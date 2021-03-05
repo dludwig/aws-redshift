@@ -34,4 +34,4 @@ else if(commander['model:create']){
   if(commander['model:create'] && commander['model:create'] !== true) model.create(commander['model:create']);
   else console.log("Error: Please enter a valid name for the model");
 }
-else console.log("Invalid command line arguments. Please run `node-redshift --help` for more help on commands");
+else console.log("Invalid command line arguments. Please run `aws-redshift --help` for more help on commands");

@@ -19,7 +19,7 @@
 - #### [Models](#models-2)
 - #### [ORM](#orm-api)
 
-#### [Change Logs](#change-logs)
+#### [Change Logs](#change-logs-1)
 
 #### [Upcoming Features](#upcoming-features-1)
 

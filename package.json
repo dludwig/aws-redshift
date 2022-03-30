@@ -6,9 +6,9 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "commander": "^2.9.0",
-    "migrate": "^0.2.2",
-    "pg": "^8.5.1",
-    "sql-bricks": "^1.2.3"
+    "migrate": "^1.8.0",
+    "pg": "^8.7.3",
+    "sql-bricks": "git+https://git@github.com/CSNW/sql-bricks.git#9fa50b3eb842c520aa6cf1daff09e035051fcd40"
   },
   "repository": {
     "type": "git",
